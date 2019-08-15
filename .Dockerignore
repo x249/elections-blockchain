@@ -1,4 +1,5 @@
 blockchain/
+vendor/
 *.log
 *.dump
 *.dmp

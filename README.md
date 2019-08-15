@@ -19,6 +19,7 @@ This project was started due to the scarcity of authenticity and transparency of
 ## Requirements (development)
 
 - Go >= 1.12.5
+- Dep >= 0.5.4
 - Docker >= 19.03.1
 - Spew ```go get -u github.com/davecgh/go-spew/spew```
 - Mux ```go get -u github.com/gorilla/mux```
@@ -27,6 +28,8 @@ This project was started due to the scarcity of authenticity and transparency of
 ## Bootstrap
 
 ```bash
+dep ensure --vendor-only # populate vendor dir with dependencies
+
 go run main.go # starts server on port 8080
 
 docker build -t elections-bc . # build the optimized image

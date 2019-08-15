@@ -21,20 +21,17 @@ This project was started due to the scarcity of authenticity and transparency of
 - Go >= 1.12.5
 - Dep >= 0.5.4
 - Docker >= 19.03.1
-- Spew ```go get -u github.com/davecgh/go-spew/spew```
-- Mux ```go get -u github.com/gorilla/mux```
-- Godotenv ```go get -u github.com/joho/godotenv```
 
 ## Bootstrap
 
 ```bash
-dep ensure --vendor-only # populate vendor dir with dependencies
+1. dep ensure --vendor-only # populate vendor dir with dependencies
 
-go run main.go # starts server on port 8080
+2. go run main.go # starts server on port 8080
 
-docker build -t elections-bc . # build the optimized image
+3. docker build -t elections-bc . # build the optimized image
 
-docker run -d -p 8080:8080 elections-bc # run the container on port 8080
+4. docker run -d -p 8080:8080 elections-bc # run the container on port 8080
 ```
 
 ## License

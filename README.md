@@ -11,6 +11,7 @@ This project was started due to the scarcity of authenticity and transparency of
 - [x] Block creation
 - [x] Block validation
 - [x] Blockchain validity check
+- [x] Optimized Docker Image 👏
 - [ ] Decetralization
 - [ ] List candidates
 - [ ] Check if person already voted

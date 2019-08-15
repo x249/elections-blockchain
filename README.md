@@ -25,13 +25,13 @@ This project was started due to the scarcity of authenticity and transparency of
 ## Bootstrap
 
 ```bash
-1. dep ensure --vendor-only # populate vendor dir with dependencies
+dep ensure --vendor-only # populate vendor dir with dependencies
 
-2. go run main.go # starts server on port 8080
+go run main.go # starts server on port 8080
 
-3. docker build -t elections-bc . # build the optimized image
+docker build -t elections-bc . # build the optimized image
 
-4. docker run -d -p 8080:8080 elections-bc # run the container on port 8080
+docker run -d -p 8080:8080 elections-bc # run the container on port 8080
 ```
 
 ## License

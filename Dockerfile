@@ -1,4 +1,4 @@
-FROM golang:latest as builder
+FROM golang:1.12.8 as builder
 
 LABEL maintainer="Osama Adil <adilosama47@gmail.com>"
 
@@ -11,7 +11,7 @@ RUN dep ensure --vendor-only
 COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o main .
 
-FROM alpine:latest  
+FROM alpine:3.10  
 
 RUN apk --no-cache add ca-certificates
 WORKDIR /root/

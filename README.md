@@ -19,6 +19,7 @@ This project was started due to the scarcity of authenticity and transparency of
 ## Requirements (development)
 
 - Go >= 1.12.5
+- Docker >= 19.03.1
 - Spew ```go get -u github.com/davecgh/go-spew/spew```
 - Mux ```go get -u github.com/gorilla/mux```
 - Godotenv ```go get -u github.com/joho/godotenv```

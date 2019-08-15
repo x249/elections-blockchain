@@ -25,7 +25,7 @@ This project was started due to the scarcity of authenticity and transparency of
 ## Bootstrap
 
 ```bash
-$ go run main.go
+go run main.go # starts server on port 8080
 ```
 
 ## License

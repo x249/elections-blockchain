@@ -8,12 +8,12 @@ This project was started due to the scarcity of authenticity and transparency of
 
 ## Features
 
-- Block creation [X]
-- Block validation [X]
-- Blockchain validity check [X]
-- Decetralization [ ]
-- List candidates [ ]
-- Check if person already voted [ ]
+- [x] Block creation
+- [x] Block validation
+- [x] Blockchain validity check
+- [ ] Decetralization
+- [ ] List candidates
+- [ ] Check if person already voted
 
 ## Requirements (development)
 

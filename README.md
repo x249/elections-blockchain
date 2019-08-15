@@ -29,6 +29,8 @@ This project was started due to the scarcity of authenticity and transparency of
 go run main.go # starts server on port 8080
 
 docker build -t elections-bc -f Dockerfile.multistage . # build the optimized image
+
+docker run -d -p 8080:8080 elections-bc # run the container on port 8080
 ```
 
 ## License

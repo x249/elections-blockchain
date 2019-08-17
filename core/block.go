@@ -1,15 +1,9 @@
 package core
 
-// Voter represents iformation regard who casted the vote and when
-type Voter struct {
-	NationalID string
-	Timestamp  string
-}
-
 // Vote represents a 'vote' casted
 type Vote struct {
-	Candidate string
-	Voter     Voter
+	Candidate     string
+	VoterIdentity string
 }
 
 // Block represents each 'item' in the blockchain

@@ -29,7 +29,7 @@ func IsBlockValid(newBlock, oldBlock Block) bool {
 
 // CalculateHash hashes using SHA256 algorithm
 func CalculateHash(block Block) string {
-	record := strconv.Itoa(block.Index) + block.Timestamp + string(block.Vote.Candidate) + string(block.Vote.Voter.NationalID) + string(block.Vote.Voter.Timestamp) + block.PrevHash
+	record := strconv.Itoa(block.Index) + block.Timestamp + string(block.Vote.Candidate) + string(block.Vote.VoterIdentity) + block.PrevHash
 	h := sha256.New()
 	h.Write([]byte(record))
 	hashed := h.Sum(nil)
@@ -46,8 +46,7 @@ func GenerateBlock(oldBlock Block, vote Vote) Block {
 	newBlock.Index = oldBlock.Index + 1
 	newBlock.Timestamp = t.String()
 	newBlock.Vote.Candidate = vote.Candidate
-	newBlock.Vote.Voter.NationalID = vote.Voter.NationalID
-	newBlock.Vote.Voter.Timestamp = vote.Voter.Timestamp
+	newBlock.Vote.VoterIdentity = vote.VoterIdentity
 	newBlock.PrevHash = oldBlock.Hash
 	newBlock.Hash = CalculateHash(newBlock)
 

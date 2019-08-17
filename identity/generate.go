@@ -8,7 +8,7 @@ type VoterInfo struct {
 }
 
 // GenerateBlockchainIdentity will create a unique identifier for the voter
-func (payload VoterInfo) GenerateBlockchainIdentity() string {
+func (payload *VoterInfo) GenerateBlockchainIdentity() string {
 	IDInfo := &payload
 	return Hash(Hash((*IDInfo).NationalID) + Hash((*IDInfo).Name) + Hash((*IDInfo).Fingerprint))
 }

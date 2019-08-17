@@ -17,7 +17,7 @@ func Test(t *testing.T) {
 	})
 	t.Run("test hashing", func(t *testing.T) {
 		got := identity.Hash("Hello")
-		want := "53427dce55a4d75552a20f0deb0c42e1545b1411a6a979d0077f3fe26c3eba15"
+		want := "47b1094306daf89edf0759839db82c29a1df2e07aaf8f0d27e93588b985d9231"
 		if reflect.DeepEqual(got, want) != true {
 			t.Errorf("got %v want %v", got, want)
 		}

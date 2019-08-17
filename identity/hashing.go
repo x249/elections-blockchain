@@ -16,8 +16,8 @@ func ConvertToByte(payload string) []byte {
 func BytesPadding(b bytes) []byte {
 	const padding = 0
 	payload := b
-	if len(payload) < 128 {
-		for len(payload) <= 128 {
+	if len(payload) < 4096 {
+		for len(payload) <= 4096 {
 			payload = append(payload, byte(padding))
 		}
 	}

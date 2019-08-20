@@ -1,10 +1,10 @@
 package core
 
 import (
-	"crypto/sha256"
-	"encoding/hex"
 	"strconv"
 	"time"
+
+	"github.com/phr3nzy/elections-blockchain/hashing"
 )
 
 // Blockchain is a series of validated Blocks
@@ -20,20 +20,19 @@ func IsBlockValid(newBlock, oldBlock Block) bool {
 		return false
 	}
 
-	if CalculateHash(newBlock) != newBlock.Hash {
+	if CalculateBlockHash(newBlock) != newBlock.Hash {
 		return false
 	}
 
 	return true
 }
 
-// CalculateHash hashes using SHA256 algorithm
-func CalculateHash(block Block) string {
+// CalculateBlockHash hashes using SHA256 algorithm
+func CalculateBlockHash(block Block) string {
 	record := strconv.Itoa(block.Index) + block.Timestamp + string(block.Vote.Candidate) + string(block.Vote.VoterIdentity) + block.PrevHash
-	h := sha256.New()
-	h.Write([]byte(record))
-	hashed := h.Sum(nil)
-	return hex.EncodeToString(hashed)
+	hash := hashing.Hash
+	hashed := hash(record)
+	return hashed
 }
 
 // GenerateBlock creates a new block using previous block's hash
@@ -48,7 +47,7 @@ func GenerateBlock(oldBlock Block, vote Vote) Block {
 	newBlock.Vote.Candidate = vote.Candidate
 	newBlock.Vote.VoterIdentity = vote.VoterIdentity
 	newBlock.PrevHash = oldBlock.Hash
-	newBlock.Hash = CalculateHash(newBlock)
+	newBlock.Hash = CalculateBlockHash(newBlock)
 
 	return newBlock
 }

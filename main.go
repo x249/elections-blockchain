@@ -22,13 +22,10 @@ func main() {
 			Index:     0,
 			Timestamp: t.String(),
 			Vote: core.Vote{
-				Candidate: "Osama",
-				Voter: core.Voter{
-					NationalID: "0000-0000-0000-0000",
-					Timestamp:  t.String(),
-				},
+				Candidate:     "Osama",
+				VoterIdentity: "0000-0000-0000-0000",
 			},
-			Hash:     core.CalculateHash(genesisBlock),
+			Hash:     core.CalculateBlockHash(genesisBlock),
 			PrevHash: "",
 		}
 		spew.Dump(genesisBlock)

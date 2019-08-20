@@ -1,4 +1,4 @@
-package identity
+package hashing
 
 import (
 	"crypto/sha256"

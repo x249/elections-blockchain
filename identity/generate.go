@@ -1,14 +1,16 @@
 package identity
 
+import "github.com/phr3nzy/elections-blockchain/hashing"
+
 // VoterInfo stores all info regarding a voter
 type VoterInfo struct {
-	NationalID  string
-	Name        string
-	Fingerprint string
+	NationalID string
+	Name       string
 }
 
 // GenerateBlockchainIdentity will create a unique identifier for the voter
-func (payload *VoterInfo) GenerateBlockchainIdentity() string {
-	IDInfo := &payload
-	return Hash(Hash((*IDInfo).NationalID) + Hash((*IDInfo).Name) + Hash((*IDInfo).Fingerprint))
+func GenerateBlockchainIdentity(payload VoterInfo) string {
+	IDInfo := payload
+	Hash := hashing.Hash
+	return Hash(Hash(IDInfo.NationalID) + Hash(IDInfo.Name))
 }

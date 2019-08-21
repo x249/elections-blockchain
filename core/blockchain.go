@@ -4,6 +4,8 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/phr3nzy/elections-blockchain/identity"
+
 	"github.com/phr3nzy/elections-blockchain/hashing"
 )
 
@@ -36,7 +38,7 @@ func CalculateBlockHash(block Block) string {
 }
 
 // GenerateBlock creates a new block using previous block's hash
-func GenerateBlock(oldBlock Block, vote Vote) Block {
+func GenerateBlock(oldBlock Block, Candidate string, payload identity.VoterInfo) Block {
 
 	var newBlock Block
 
@@ -44,8 +46,8 @@ func GenerateBlock(oldBlock Block, vote Vote) Block {
 
 	newBlock.Index = oldBlock.Index + 1
 	newBlock.Timestamp = t.String()
-	newBlock.Vote.Candidate = vote.Candidate
-	newBlock.Vote.VoterIdentity = vote.VoterIdentity
+	newBlock.Vote.Candidate = Candidate
+	newBlock.Vote.VoterIdentity = identity.GenerateBlockchainIdentity(payload)
 	newBlock.PrevHash = oldBlock.Hash
 	newBlock.Hash = CalculateBlockHash(newBlock)
 

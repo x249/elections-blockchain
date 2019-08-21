@@ -9,6 +9,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/phr3nzy/elections-blockchain/identity"
+
 	"github.com/davecgh/go-spew/spew"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
@@ -19,7 +21,8 @@ var Mutex = &sync.Mutex{}
 
 // Message takes incoming JSON payload for writing a vote
 type Message struct {
-	Vote Vote
+	VoteCandidate string
+	VoterIdentity identity.VoterInfo
 }
 
 // Run starts the web server
@@ -74,7 +77,7 @@ func handleWriteBlock(w http.ResponseWriter, r *http.Request) {
 
 	Mutex.Lock()
 	prevBlock := Blockchain[len(Blockchain)-1]
-	newBlock := GenerateBlock(prevBlock, msg.Vote)
+	newBlock := GenerateBlock(prevBlock, msg.VoteCandidate, msg.VoterIdentity)
 
 	if IsBlockValid(newBlock, prevBlock) {
 		Blockchain = append(Blockchain, newBlock)

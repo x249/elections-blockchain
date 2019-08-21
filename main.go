@@ -4,6 +4,8 @@ import (
 	"log"
 	"time"
 
+	"github.com/phr3nzy/elections-blockchain/identity"
+
 	"github.com/davecgh/go-spew/spew"
 	"github.com/joho/godotenv"
 	"github.com/phr3nzy/elections-blockchain/core"
@@ -23,7 +25,7 @@ func main() {
 			Timestamp: t.String(),
 			Vote: core.Vote{
 				Candidate:     "Osama",
-				VoterIdentity: "0000-0000-0000-0000",
+				VoterIdentity: identity.GenerateBlockchainIdentity(identity.VoterInfo{Name: "Osama", NationalID: "0000-0000-0000-0000"}),
 			},
 			Hash:     core.CalculateBlockHash(genesisBlock),
 			PrevHash: "",

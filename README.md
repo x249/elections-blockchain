@@ -13,9 +13,9 @@ This project was started due to the scarcity of authenticity and transparency of
 - [x] Blockchain validity check
 - [x] Optimized Docker Image 👏
 - [x] SHA256 hashing (with padding)
+- [x] Check if person already voted
 - [ ] Decetralization
 - [ ] List candidates and votes
-- [ ] Check if person already voted
 - [ ] Public-Private key-pair generation (sent via email)
 
 ## Requirements (development)

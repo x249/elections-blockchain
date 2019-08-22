@@ -10,9 +10,9 @@ This project was started due to the scarcity of authenticity and transparency of
 
 - [x] Block and Blockchain validation
 - [x] Vote duplication check
-- [x] Optimized Docker Image 👏
 - [x] SHA256 hashing (with padding)
 - [ ] Public-Private key-pair generation (sent via email)
+- [x] Optimized Docker Image 👏
 - [ ] Decetralization
 - [ ] View elections results
 

@@ -75,6 +75,14 @@ func handleWriteBlock(w http.ResponseWriter, r *http.Request) {
 	}
 	defer r.Body.Close()
 
+	isDuplicate := CheckDuplicateVote(Blockchain, msg.VoterIdentity)
+
+	if isDuplicate != false {
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte(`{"error":"Vote already casted!"}`))
+		return
+	}
+
 	Mutex.Lock()
 	prevBlock := Blockchain[len(Blockchain)-1]
 	newBlock := GenerateBlock(prevBlock, msg.VoteCandidate, msg.VoterIdentity)

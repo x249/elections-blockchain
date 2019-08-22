@@ -9,8 +9,19 @@ import (
 	"github.com/phr3nzy/elections-blockchain/hashing"
 )
 
-// Blockchain is a series of validated Blocks
+// Blockchain is the main set of blocks in the network
 var Blockchain []Block
+
+// CheckDuplicateVote sees if a vote casted is a duplicate
+func CheckDuplicateVote(blockchain []Block, vote identity.VoterInfo) bool {
+	duplicate := identity.GenerateBlockchainIdentity(vote)
+	for _, block := range blockchain {
+		if block.Vote.VoterIdentity == duplicate {
+			return true
+		}
+	}
+	return false
+}
 
 // IsBlockValid makes sure block is valid by checking index, and comparing the hash of the previous block
 func IsBlockValid(newBlock, oldBlock Block) bool {

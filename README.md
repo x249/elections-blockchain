@@ -4,7 +4,17 @@ A simple Blockchain implementation in Golang for an Election vote casting applic
 
 ## Rationale
 
-This project was started due to the scarcity of authenticity and transparency of the elections held in the Republic of Sudan in the past. It aims to break those barriers by implementing a decentralized solution where anyone can view the content without mutating it once commited. By using Golang and Docker, the project is able to handle high traffic load and performance bottlenecks other languages suffer from while working on any platform with a small disk footprint (~15MB is the final size of the image).
+This project was started due to the scarcity of authenticity and transparency of the elections held in the Republic of Sudan in the past. It aims to break those barriers by implementing a blockchain solution. By using Golang and Docker, the project is able to handle high traffic load and performance bottlenecks other languages suffer from while working on any platform with a small disk footprint (~15MB is the final size of the image).
+
+E-voting systems provide numerous benefits which include: 
+- Prevention of fraud, by reducing human involvement 
+- Acceleration of results processing 
+- Reduction of spoilt ballots by improved presentation and automatic validation of ballots 
+- Reduction of costs due to decreasing voting overhead 
+- Increase involvement in democratic process due to easer availability (remote voting) 
+- Potential for more direct democracy.
+
+> _Quoted from Towards the intelligent agents for blockchain e-voting systems_
 
 ## Features
 

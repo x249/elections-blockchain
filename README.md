@@ -14,7 +14,7 @@ E-voting systems provide numerous benefits which include:
 - Increase involvement in democratic process due to easer availability (remote voting) 
 - Potential for more direct democracy.
 
-> _Quoted from Towards the intelligent agents for blockchain e-voting systems_
+> _Quoted from Towards the intelligent agents for blockchain e-voting systems - Procedia Computer Science 141 (2018) 239-146_ 
 
 ## Features
 

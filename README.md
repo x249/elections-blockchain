@@ -8,15 +8,13 @@ This project was started due to the scarcity of authenticity and transparency of
 
 ## Features
 
-- [x] Block creation
-- [x] Block validation
-- [x] Blockchain validity check
+- [x] Block and Blockchain validation
+- [x] Vote duplication check
 - [x] Optimized Docker Image 👏
 - [x] SHA256 hashing (with padding)
-- [x] Check if person already voted
-- [ ] Decetralization
-- [ ] List candidates and votes
 - [ ] Public-Private key-pair generation (sent via email)
+- [ ] Decetralization
+- [ ] View elections results
 
 ## Requirements (development)
 

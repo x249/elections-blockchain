@@ -22,6 +22,12 @@ This project was started due to the scarcity of authenticity and transparency of
 - Dep >= 0.5.4
 - Docker >= 19.03.1
 
+## Environment variables
+
+```bash
+PORT=8080
+```
+
 ## Bootstrap
 
 Development:

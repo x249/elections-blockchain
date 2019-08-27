@@ -36,6 +36,7 @@ Blockchain technology can provide a solution to some of these problems. One of t
 - [ ] Public-Private key-pair generation (sent via email)
 - [x] Optimized Docker Image 👏
 - [ ] Decetralization
+- [ ] Peer discovery
 - [ ] View elections results
 
 ## Requirements (development)

@@ -39,7 +39,7 @@ func Start(port int, seed int64) {
 	}
 
 	if *target == "" {
-		log.Println("listening for connections")
+		log.Println("Listening for connections...")
 		// Set a stream handler on host A. /p2p/1.0.0 is
 		// a user-defined protocol name.
 		ha.SetStreamHandler("/p2p/1.0.0", HandleStream)

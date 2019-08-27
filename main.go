@@ -2,11 +2,13 @@ package main
 
 import (
 	"log"
+	"os"
+	"strconv"
 	"time"
 
 	"github.com/phr3nzy/elections-blockchain/identity"
+	"github.com/phr3nzy/elections-blockchain/p2p"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/joho/godotenv"
 	"github.com/phr3nzy/elections-blockchain/core"
 )
@@ -30,11 +32,18 @@ func main() {
 			Hash:     core.CalculateBlockHash(genesisBlock),
 			PrevHash: "",
 		}
-		spew.Dump(genesisBlock)
+		log.Printf("Genesis block created successfully with hash: \n\x1b[32m{%v}\x1b[0m", genesisBlock.Hash)
 
 		core.Mutex.Lock()
 		core.Blockchain = append(core.Blockchain, genesisBlock)
 		core.Mutex.Unlock()
 	}()
+
+	peerPort, err := strconv.Atoi(os.Getenv("PEER_PORT"))
+	if err != nil {
+		log.Fatalf("%v", err)
+	}
+
+	go p2p.Start(peerPort, 0)
 	log.Fatal(core.Run())
 }

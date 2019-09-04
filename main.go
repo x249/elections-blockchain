@@ -11,13 +11,12 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/phr3nzy/elections-blockchain/core"
+	"github.com/phr3nzy/elections-blockchain/errors"
 )
 
 func main() {
 	err := godotenv.Load()
-	if err != nil {
-		log.Fatal(err)
-	}
+	errors.HandleError(err)
 
 	go func() {
 		t := time.Now()
@@ -32,7 +31,7 @@ func main() {
 			Hash:     core.CalculateBlockHash(genesisBlock),
 			PrevHash: "",
 		}
-		log.Printf("Genesis block created successfully with hash: \n\x1b[32m{%v}\x1b[0m", genesisBlock.Hash)
+		log.Printf("Genesis block created successfully with hash: \x1b[33m%v\x1b[0m", genesisBlock.Hash)
 
 		core.Mutex.Lock()
 		core.Blockchain = append(core.Blockchain, genesisBlock)
@@ -40,10 +39,8 @@ func main() {
 	}()
 
 	peerPort, err := strconv.Atoi(os.Getenv("PEER_PORT"))
-	if err != nil {
-		log.Fatalf("%v", err)
-	}
+	errors.HandleError(err)
 
 	go p2p.Start(peerPort, 0)
-	log.Fatal(core.Run())
+	go log.Fatal(core.Run())
 }

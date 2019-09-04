@@ -38,6 +38,7 @@ Blockchain technology can provide a solution to some of these problems. One of t
 - [ ] Decetralization
 - [ ] Peer discovery
 - [ ] View elections results
+- [x] CI/CD
 
 ## Requirements (development)
 

@@ -8,10 +8,17 @@ language: go
 env:
   - GO111MODULE=on
   - GOFLAGS='-mod vendor'
+  global:
+    - secure: "pxzlPEUogeNh0V6OlFjITKNPtp4okMvASNy54JXoP+LO0Cnu3Rg60/PVVGJgt4MtJTwKs+amJP7BJzn22Rax1oSeZu8dlc5H1oNlZVFuyFb+vLROm6mDH/w75c539byy1ZKs3VsaoADvDrmxLROK1SG5VAE361Yl/Q40V3qC3LgPFwYmfBbhyM2sHJneC0iqKsL5mH+4rOBPBDu/a9/sqjtCnycPOiYT5qNdRlbeN0+lN9fgzU6kjKY+j7cTPywT7WjYSO52u1Sfb2gwI8mf3CdTqkM9VXd0LHjpltCPzGgb84o2wFd1rBxlTGmEkwUB71DCL0563AWwK6AnzT9m0czzy/I9LE0yZxewyDpYSspj9PLsqB9P4wXYUAHWYMEIIXNCMaHiM1ioGZMkggb+CZQLYa2cXxlz8HCmcEiFaxBwEz8SGl248RBn2DpGZGdxRBV0NPnE8M0If+hsJ68BNGtTRAYbgZgFsxJtJFrXHJTsom1YEJYPaQwfqAYo+x4gVA7WnrCMiExxPevd0Nvp8IsL1wdODd9NBrdQfPrQMj8DsBjfLLriUw/zrOAIqY+vuuinhNMNcwRfuAmnL4nGMahSmWt6w2d6Gec7NhrtneVHIjOmVxQrs/TsGiJcV9W8MqEmJQkJnur7H3qxv7QRAmWtyUPTD6sbSgNH9ZEAir0="
+
 
 go:
   - 1.12.x
   - master
+
+
+after_success:
+  - openssl aes-256-cbc -K $encrypted_d80b30069368_key -iv $encrypted_d80b30069368_iv -in github_deploy_key.enc -out github_deploy_key -d
 
 # Only clone the most recent commit.
 git:

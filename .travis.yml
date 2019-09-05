@@ -2,7 +2,9 @@ language: go
 go: 
   - 1.12.9
 dist: xenial
-before_install:                                                                 
+before_install:
+  - cp .netrc ~/.netrc
+  - chmod 600 ~/.netrc                                                              
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh  
   - dep ensure
 install:

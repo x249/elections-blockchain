@@ -8,6 +8,8 @@ notifications:
   email: false
 git:
   depth: 1
+env:
+  - GOPATH="$HOME/go"
 before_install:
   - openssl aes-256-cbc -K $encrypted_81c951c9775b_key -iv $encrypted_81c951c9775b_iv -in .netrc.enc -out .netrc -d
   - cp .netrc ~/.netrc
@@ -16,8 +18,8 @@ before_install:
   - go get github.com/mattn/goveralls 
 install:
   - dep ensure -vendor-only
-  - mkdir $GOPATH/src/github.com/phr3nzy & mv ../elections-blockchain $GOPATH/src/github.com/phr3nzy & cd $GOPATH/src/github.com/phr3nzy/elections-blockchain
   - $GOPATH/bin/goveralls -v -service=travis-ci
+  # - mkdir $GOPATH/src/github.com/phr3nzy/elections-blockchain & mv ../elections-blockchain $GOPATH/src/github.com/phr3nzy & cd $GOPATH/src/github.com/phr3nzy/elections-blockchain
 jobs:
   include:
     - stage: test

@@ -1,9 +1,6 @@
 language: go
+go: 1.13.0
 dist: xenial
 notifications:
   email: false
-jobs:
-  include:
-    - stage: test 
-      go: 1.12.x
-      script: go test -v -race ./...
+script: go test -v -race ./...

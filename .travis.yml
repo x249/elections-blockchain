@@ -19,6 +19,6 @@ install:
 jobs:
   include:
     - stage: test
-      script: go test ./... -v -cover -race
+      script: "go test ./... -v -cover -race"
     - stage: coverage
-      script: $GOPATH/bin/goveralls -v -service=travis-ci
+      script: "$GOPATH/bin/goveralls -v -service=travis-ci"

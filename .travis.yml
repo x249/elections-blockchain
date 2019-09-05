@@ -18,6 +18,8 @@ install:
   - dep ensure -vendor-only
 jobs:
   include:
+    - stage: build
+      script: "go build -o main ."
     - stage: test
       script: "go test ./... -v -cover -race"
     - stage: coverage

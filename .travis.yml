@@ -1,5 +1,6 @@
 os: linux
 dist: bionic
+sudo: false
 language: go
 go: 
   - 1.12.9
@@ -11,8 +12,10 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_81c951c9775b_key -iv $encrypted_81c951c9775b_iv -in .netrc.enc -out .netrc -d
   - cp .netrc ~/.netrc
   - chmod 600 ~/.netrc                                                              
-  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh  
+  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+  - go get github.com/mattn/goveralls 
 install:
+  - $GOPATH/bin/goveralls -v -service=travis-ci
   - dep ensure -vendor-only
 jobs:
   include:

@@ -9,24 +9,29 @@ env:
   - GO111MODULE=on
   - GOFLAGS='-mod vendor'
   global:
-    - secure: "pxzlPEUogeNh0V6OlFjITKNPtp4okMvASNy54JXoP+LO0Cnu3Rg60/PVVGJgt4MtJTwKs+amJP7BJzn22Rax1oSeZu8dlc5H1oNlZVFuyFb+vLROm6mDH/w75c539byy1ZKs3VsaoADvDrmxLROK1SG5VAE361Yl/Q40V3qC3LgPFwYmfBbhyM2sHJneC0iqKsL5mH+4rOBPBDu/a9/sqjtCnycPOiYT5qNdRlbeN0+lN9fgzU6kjKY+j7cTPywT7WjYSO52u1Sfb2gwI8mf3CdTqkM9VXd0LHjpltCPzGgb84o2wFd1rBxlTGmEkwUB71DCL0563AWwK6AnzT9m0czzy/I9LE0yZxewyDpYSspj9PLsqB9P4wXYUAHWYMEIIXNCMaHiM1ioGZMkggb+CZQLYa2cXxlz8HCmcEiFaxBwEz8SGl248RBn2DpGZGdxRBV0NPnE8M0If+hsJ68BNGtTRAYbgZgFsxJtJFrXHJTsom1YEJYPaQwfqAYo+x4gVA7WnrCMiExxPevd0Nvp8IsL1wdODd9NBrdQfPrQMj8DsBjfLLriUw/zrOAIqY+vuuinhNMNcwRfuAmnL4nGMahSmWt6w2d6Gec7NhrtneVHIjOmVxQrs/TsGiJcV9W8MqEmJQkJnur7H3qxv7QRAmWtyUPTD6sbSgNH9ZEAir0="
-
+    - secure: "dFOId+PGXJ4Ucwcoi1tab719TEFWT6uyIUwRXqYJdEEGke+8sA/1DTKCTkJ2QgErzu6NjwxTmWFCHkkF+S5PIsyGsiaz9SOBXhGTg3jOTm58V1wKK3ImKZxOYfPVNqHWAv9PdkwpxGE+xjq7ZkyHBHreIe+yELZqSwg3XjwvGtVCNGcxVEL92dM+xObLZ0UhnwG3QeB/Wf9Ed/LKf7MbiUemTCjVNrXzXtb3MQZ3vDg6t/7CRKIwuP8HryLvYMjiw7SCQhkMDFQRp++2fPzpi/8GR1sfT1LUIefjc7JGRevJi5ilxqwqdP/I2hT13iKIAOIK7zIBlSOBGAnlDSwjodriQVlWZzdk+tU9vrD10DTf3QOqD1iu8DNGrK93ElCc3pXooIhjfmjQt4TD2VKvQI91QAhHB5rqQH04KcTk5QBSQpYz/6TmWcfCnLQ/AVKPZcX+KKxqVmtTyF8oIflYfBQoCrDexPkJGzcX2Oz+L64zwMDDY81Wo4oURVV2wjzr9FtuCo+NctAKzYlAO6Ltua9Mt8T9xEPSVytk+3/SubfHfNAWGhbQal4JPoaImwuedoyp2aI+k5Z6v98+q5sn+iX97XPH0WTq+shSXmEJG8hTtU1dLV+lBwASbQeIZz+tSSeUulgLvRFrlNHNQPdTj+XTxkXd3qZvz/cZWUKI8z0="
 
 go:
   - 1.12.x
 
-
-after_success:
-  - openssl aes-256-cbc -K $encrypted_d80b30069368_key -iv $encrypted_d80b30069368_iv -in .travis/github_deploy_key.enc -out github_deploy_key -d
 
 # Only clone the most recent commit.
 git:
   depth: 1
 
 before_install:
+  # decrypt private key
+  - openssl aes-256-cbc -K $encrypted_81c951c9775b_key -iv $encrypted_81c951c9775b_iv -in .travis/github_deploy_key.enc -out github_deploy_key -d
   # Setup dependency management tool
   - curl -L -s https://github.com/golang/dep/releases/download/v0.5.4/dep-linux-amd64 -o $GOPATH/bin/dep
   - chmod +x $GOPATH/bin/dep
+
+after_success:
+  - |
+
+       $(npm bin)/set-up-ssh --key "$encrypted_81c951c9775b_key" \
+                             --iv "$encrypted_81c951c9775b_iv" \
+                             --path-encrypted-key ".travis/github_deploy_key.enc"
 
 install:
   - dep ensure

@@ -13,5 +13,9 @@ before_install:
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh  
 install:
   - dep ensure -vendor-only
-script:
-  - go test ./... -v -cover  # Run all the tests with the race detector enabled
+jobs:
+  include:
+    - stage: build
+      script: go build -o main .
+    - stage: test
+      script: go test ./... -v -cover

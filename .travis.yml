@@ -16,8 +16,8 @@ before_install:
   - go get github.com/mattn/goveralls 
 install:
   - dep ensure -vendor-only
-  - $GOPATH/bin/goveralls -v -service=travis-ci
   - mkdir $GOPATH/src/github.com/phr3nzy & mv ../elections-blockchain $GOPATH/src/github.com/phr3nzy & cd $GOPATH/src/github.com/phr3nzy/elections-blockchain
+  - $GOPATH/bin/goveralls -v -service=travis-ci
 jobs:
   include:
     - stage: test

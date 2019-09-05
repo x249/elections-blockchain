@@ -7,8 +7,9 @@ notifications:
 git:
   depth: 1
 env:
-  - GO111MODULE=on
-  - GOFLAGS='-mod vendor'
+  global:
+    - GO111MODULE=off
+    - GOFLAGS='-mod vendor'
 before_install:
   - cp .netrc ~/.netrc
   - chmod 600 ~/.netrc                                                              

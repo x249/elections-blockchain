@@ -2,6 +2,11 @@ language: go
 go: 
   - 1.12.9
 dist: xenial
+before_install:                                                                 
+  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh  
+  - dep ensure
+install:
+  - dep ensure -vendor-only
 notifications:
   email: false
 script: go test -v -race ./...

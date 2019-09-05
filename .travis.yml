@@ -8,8 +8,6 @@ notifications:
   email: false
 git:
   depth: 1
-env:
-  - GOPATH="$HOME/go"
 before_install:
   - openssl aes-256-cbc -K $encrypted_81c951c9775b_key -iv $encrypted_81c951c9775b_iv -in .netrc.enc -out .netrc -d
   - cp .netrc ~/.netrc

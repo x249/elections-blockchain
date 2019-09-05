@@ -11,6 +11,7 @@ before_install:
   - chmod 600 ~/.netrc                                                              
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh  
 install:
+  - export GOPATH="$HOME/go"
   - dep ensure -vendor-only
 script:
   - go test ./... -v -cover  # Run all the tests with the race detector enabled

@@ -6,8 +6,6 @@ before_install:
   - cp .netrc ~/.netrc
   - chmod 600 ~/.netrc                                                              
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh  
-  - dep ensure
-install:
   - dep ensure -vendor-only
 notifications:
   email: false

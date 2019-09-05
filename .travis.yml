@@ -15,7 +15,9 @@ install:
   - dep ensure -vendor-only
 jobs:
   include:
+    - stage: check_files
+      script: pwd & ls -a & ls core & ls errors & ls hashing & ls identity & ls p2p & ls consensus
     - stage: build
       script: go build -o main .
     - stage: test
-      script: go test ./... -v -cover
+      script: go test ./... -v -cover -race

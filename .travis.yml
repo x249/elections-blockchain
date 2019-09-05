@@ -13,5 +13,5 @@ before_install:
 install:
   - dep ensure -vendor-only
 script:
-  - env GO111MODULE=on go build
-  - env GO111MODULE=on go test ./... -v -cover  # Run all the tests with the race detector enabled
+  - ls -a
+  - go test ./... -v -cover  # Run all the tests with the race detector enabled

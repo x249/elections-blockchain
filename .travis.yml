@@ -4,11 +4,10 @@ notifications:
   email: false
 jobs:
   include:
-    - stage: test
-      go_import_path: github.com/golang/dep 
+    - stage: test 
       env:
         - GO111MODULE=on
         - GOFLAGS='-mod vendor'
+      go_import_path: github.com/golang/dep
       go: 1.12.x
-      install: dep ensure
       script: go test -v -race ./...

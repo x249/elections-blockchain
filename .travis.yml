@@ -1,6 +1,6 @@
 language: go
 go: 
-  - 1.13.0
+  - 1.12.9
 dist: xenial
 notifications:
   email: false

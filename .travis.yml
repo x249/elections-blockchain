@@ -1,7 +1,7 @@
 language: go
 go: 
   - 1.12.9
-dist: xenial
+dist: bionic
 notifications:
   email: false
 git:
@@ -13,5 +13,4 @@ before_install:
 install:
   - dep ensure -vendor-only
 script:
-  - ls -a
   - go test ./... -v -cover  # Run all the tests with the race detector enabled

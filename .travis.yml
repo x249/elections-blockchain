@@ -27,11 +27,7 @@ before_install:
   - chmod +x $GOPATH/bin/dep
 
 after_success:
-  - |
-
-       $(npm bin)/set-up-ssh --key "$encrypted_81c951c9775b_key" \
-                             --iv "$encrypted_81c951c9775b_iv" \
-                             --path-encrypted-key ".travis/github_deploy_key.enc"
+  - $(npm bin)/set-up-ssh --key "$encrypted_81c951c9775b_key" --iv "$encrypted_81c951c9775b_iv" --path-encrypted-key ".travis/github_deploy_key.enc"
 
 install:
   - dep ensure

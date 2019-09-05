@@ -15,8 +15,8 @@ before_install:
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
   - go get github.com/mattn/goveralls 
 install:
-  - $GOPATH/bin/goveralls -v -service=travis-ci
   - dep ensure -vendor-only
+  - $GOPATH/bin/goveralls -v -service=travis-ci
 jobs:
   include:
     - stage: test

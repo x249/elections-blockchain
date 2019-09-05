@@ -46,12 +46,12 @@ Blockchain technology can provide a solution to some of these problems. One of t
 - [x] Block and Blockchain validation
 - [x] Vote duplication check
 - [x] SHA256 hashing (with padding)
-- [ ] Public-Private key-pair generation (sent via email)
 - [x] Optimized Docker Image 👏
+- [ ] Public-Private key-pair generation (sent via email)
 - [ ] Decetralization
 - [ ] Peer discovery
 - [ ] View elections results
-- [x] CI/CD
+- [ ] CI/CD
 
 ## Requirements (development)
 

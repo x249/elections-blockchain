@@ -2,12 +2,18 @@ language: go
 go: 
   - 1.12.9
 dist: xenial
+notifications:
+  email: false
+git:
+  depth: 1
 before_install:
   - cp .netrc ~/.netrc
   - chmod 600 ~/.netrc                                                              
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh  
 install:
   - dep ensure -vendor-only
-notifications:
-  email: false
-script: go test -v -race ./...
+before_script:
+  - go install github.com/golangci/golangci-lint/cmd/golangci-lint
+script:
+  - golangci-lint run       # run a bunch of code checkers/linters in parallel
+  - go test -v -race ./...  # Run all the tests with the race detector enabled

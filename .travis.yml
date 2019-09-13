@@ -1,16 +1,28 @@
 os: linux
 distro: bionic
+language: go
+go:
+  - 1.12.x
 sudo: required
 notifications:
-    email: false
+  email: false
 services:
-    - docker
+  - docker
 before_install:
-    - sudo apt-get update
-    - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-ce
+  - sudo apt-get update
+  - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-ce
+  - go get -t -v ./...
 jobs:
-    include:
-        - stage: build and run
-          script:
-            - docker build -t elections-bc .
-            - docker run --rm -d -p 8080:8080/tcp elections-bc 
+  include:
+    - stage: build binary
+      script: go build -o main .
+    - stage: test
+      script: go test ./... -v -race
+    - stage: generate coverage
+      script: go test -race -coverprofile=coverage.txt -covermode=atomic
+    - stage: build and run docker image
+      script:
+        - docker build -t elections-bc .
+        - docker run --rm -d -p 8080:8080/tcp elections-bc
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

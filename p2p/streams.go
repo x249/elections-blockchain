@@ -7,8 +7,8 @@ import (
 	"log"
 
 	net "github.com/libp2p/go-libp2p-net"
-	"github.com/phr3nzy/elections-blockchain/core"
-	"github.com/phr3nzy/elections-blockchain/errors"
+	"github.com/x249/elections-blockchain/core"
+	"github.com/x249/elections-blockchain/errors"
 )
 
 // HandleStream handles incoming network streams

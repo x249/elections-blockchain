@@ -1,6 +1,6 @@
 package identity
 
-import "github.com/phr3nzy/elections-blockchain/hashing"
+import "github.com/x249/elections-blockchain/hashing"
 
 // VoterInfo stores all info regarding a voter
 type VoterInfo struct {

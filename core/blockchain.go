@@ -4,9 +4,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/phr3nzy/elections-blockchain/identity"
+	"github.com/x249/elections-blockchain/identity"
 
-	"github.com/phr3nzy/elections-blockchain/hashing"
+	"github.com/x249/elections-blockchain/hashing"
 )
 
 // Blockchain is the main set of blocks in the network

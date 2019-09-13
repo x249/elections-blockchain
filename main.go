@@ -6,12 +6,12 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/phr3nzy/elections-blockchain/identity"
-	"github.com/phr3nzy/elections-blockchain/p2p"
+	"github.com/x249/elections-blockchain/identity"
+	"github.com/x249/elections-blockchain/p2p"
 
 	"github.com/joho/godotenv"
-	"github.com/phr3nzy/elections-blockchain/core"
-	"github.com/phr3nzy/elections-blockchain/errors"
+	"github.com/x249/elections-blockchain/core"
+	"github.com/x249/elections-blockchain/errors"
 )
 
 func main() {

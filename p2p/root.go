@@ -11,7 +11,7 @@ import (
 	peer "github.com/libp2p/go-libp2p-peer"
 	pstore "github.com/libp2p/go-libp2p-peerstore"
 	ma "github.com/multiformats/go-multiaddr"
-	"github.com/phr3nzy/elections-blockchain/errors"
+	"github.com/x249/elections-blockchain/errors"
 	gologging "github.com/whyrusleeping/go-logging"
 )
 

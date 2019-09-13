@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/phr3nzy/elections-blockchain/errors"
+	"github.com/x249/elections-blockchain/errors"
 )
 
 func Test(t *testing.T) {

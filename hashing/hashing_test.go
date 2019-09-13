@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/phr3nzy/elections-blockchain/hashing"
+	"github.com/x249/elections-blockchain/hashing"
 )
 
 func Test(t *testing.T) {

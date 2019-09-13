@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/phr3nzy/elections-blockchain/identity"
+	"github.com/x249/elections-blockchain/identity"
 )
 
 func Test(t *testing.T) {

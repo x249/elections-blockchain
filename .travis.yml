@@ -13,4 +13,4 @@ jobs:
         - stage: build and run
           script:
             - docker build -t elections-bc .
-            - docker run --rm -p 8080:8080/tcp elections-bc 
+            - docker run --rm -d -p 8080:8080/tcp elections-bc 

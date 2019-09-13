@@ -52,7 +52,7 @@ Blockchain technology can provide a solution to some of these problems. One of t
 - [ ] Decetralization
 - [ ] Peer discovery
 - [ ] View elections results
-- [ ] CI/CD
+- [x] Travis CI and CodeCov Integration
 
 ## Requirements (development)
 

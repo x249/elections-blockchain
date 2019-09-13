@@ -2,8 +2,12 @@ os: linux
 dist: bionic
 sudo: false
 language: go
-go: 
-  - 1.12.9
+go:
+  - 1.8.x
+  - 1.9.x
+  - 1.10.x
+  - 1.11.x
+  - 1.12.x
 notifications:
   email: false
 git:
@@ -16,11 +20,6 @@ before_install:
   - go get github.com/mattn/goveralls 
 install:
   - dep ensure -vendor-only
-jobs:
-  include:
-    - stage: build
-      script: "go build -o main ."
-    - stage: test
-      script: "go test ./... -v -cover -race"
-    - stage: coverage
-      script: "$GOPATH/bin/goveralls -v -service=travis-ci"
+script:
+  - go build -o main .
+  - go test ./... -v -cover -race

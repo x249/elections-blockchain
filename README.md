@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/x249/elections-blockchain.svg?branch=master)](https://travis-ci.org/x249/elections-blockchain)
 [![Coverage Status](https://codecov.io/gh/x249/elections-blockchain/branch/master/graph/badge.svg)](https://codecov.io/gh/x249/elections-blockchain)
 [![Go Report Card](https://goreportcard.com/badge/github.com/x249/elections-blockchain)](https://goreportcard.com/report/github.com/x249/elections-blockchain)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/x249/elections-blockchain/issues)
+[![Contributions welcomed](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/x249/elections-blockchain/issues)
 ![GitHub](https://img.shields.io/github/license/x249/elections-blockchain)
 
 A simple Blockchain implementation in Golang for an Election vote casting application
@@ -56,9 +56,9 @@ Blockchain technology can provide a solution to some of these problems. One of t
 
 ## Requirements (development)
 
-- Go >= 1.12.5
-- Dep >= 0.5.4
-- Docker >= 19.03.1
+- [Go](https://golang.org/dl/) >= 1.11.13
+- [Dep](https://github.com/golang/dep) >= 0.5.4
+- [Docker](https://docs.docker.com/docker-for-windows/install/) >= 18.06.0 CE.
 
 ## Environment variables
 

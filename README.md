@@ -1,5 +1,6 @@
 # Elections Blockchain 🗳️ ⛓️
 
+[![Build Status](https://travis-ci.org/x249/elections-blockchain.svg?branch=master)](https://travis-ci.org/x249/elections-blockchain)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/x249/elections-blockchain/issues)
 ![GitHub](https://img.shields.io/github/license/x249/elections-blockchain)
 

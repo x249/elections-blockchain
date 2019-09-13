@@ -9,8 +9,6 @@ notifications:
 services:
   - docker
 before_install:
-  - sudo apt-get update
-  - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-ce
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 install:
   - dep ensure
@@ -23,9 +21,12 @@ jobs:
       script: go test ./... -v -race
     - stage: generate coverage
       script: go test ./... -race -coverprofile=coverage.txt -covermode=atomic
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
     - stage: build and run docker image
+      before_install:
+        - sudo apt-get update
+        - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-ce
       script:
         - docker build -t elections-bc .
         - docker run --rm -d -p 8080:8080/tcp elections-bc
-after_success:
-  - bash <(curl -s https://codecov.io/bash)

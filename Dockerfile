@@ -1,4 +1,4 @@
-FROM golang:1.12.8 as builder
+FROM golang:1.12.9 as builder
 
 LABEL maintainer="Osama Adil <adilosama47@gmail.com>"
 
@@ -9,7 +9,6 @@ WORKDIR $GOPATH/src/github.com/phr3nzy/elections-blockchain/
 COPY Gopkg.toml Gopkg.lock ./
 RUN dep ensure --vendor-only
 COPY . .
-RUN go test ./... -v -cover
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o main .
 
 FROM alpine:3.10  

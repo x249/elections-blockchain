@@ -10,5 +10,7 @@ before_install:
     - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-ce
 jobs:
     include:
-        - stage: build
-          script: docker run --rm -p 8080:8080/tcp elections-bc 
+        - stage: build and run
+          script:
+            - docker build -t elections-bc .
+            - docker run --rm -p 8080:8080/tcp elections-bc 

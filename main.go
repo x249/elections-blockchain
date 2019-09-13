@@ -16,7 +16,7 @@ import (
 
 func main() {
 	err := godotenv.Load()
-	errors.HandleError(err)
+	errors.HandleError(&err)
 
 	go func() {
 		t := time.Now()
@@ -39,7 +39,7 @@ func main() {
 	}()
 
 	peerPort, err := strconv.Atoi(os.Getenv("PEER_PORT"))
-	errors.HandleError(err)
+	errors.HandleError(&err)
 
 	go p2p.Start(peerPort, 0)
 	go log.Fatal(core.Run())

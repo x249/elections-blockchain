@@ -35,7 +35,7 @@ func Start(port int, seed int64) {
 
 	// Make a host that listens on the given multiaddress
 	ha, err := CreateBasicHost(port, true, seed)
-	errors.HandleError(err)
+	errors.HandleError(&err)
 
 	if *target == "" {
 		log.Println("Listening for connections...")
@@ -51,13 +51,13 @@ func Start(port int, seed int64) {
 		// The following code extracts target's peer ID from the
 		// given multiaddress
 		ipfsaddr, err := ma.NewMultiaddr(*target)
-		errors.HandleError(err)
+		errors.HandleError(&err)
 
 		pid, err := ipfsaddr.ValueForProtocol(ma.P_IPFS)
-		errors.HandleError(err)
+		errors.HandleError(&err)
 
 		peerid, err := peer.IDB58Decode(pid)
-		errors.HandleError(err)
+		errors.HandleError(&err)
 
 		// Decapsulate the /ipfs/<peerID> part from the target
 		// /ip4/<a.b.c.d>/ipfs/<peer> becomes /ip4/<a.b.c.d>
@@ -74,7 +74,7 @@ func Start(port int, seed int64) {
 		// it should be handled on host A by the handler we set above because
 		// we use the same /p2p/1.0.0 protocol
 		s, err := ha.NewStream(context.Background(), peerid, "/p2p/1.0.0")
-		errors.HandleError(err)
+		errors.HandleError(&err)
 		// Create a buffered stream so that read and writes are non blocking.
 		rw := bufio.NewReadWriter(bufio.NewReader(s), bufio.NewWriter(s))
 

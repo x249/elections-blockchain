@@ -6,8 +6,6 @@ go:
 sudo: required
 notifications:
   email: false
-services:
-  - docker
 before_install:
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 install:
@@ -24,7 +22,10 @@ jobs:
       after_success:
         - bash <(curl -s https://codecov.io/bash)
     - stage: build and run docker image
+      services:
+        - docker
       before_install:
+        - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
         - sudo apt-get update
         - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-ce
       script:

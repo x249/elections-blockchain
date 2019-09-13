@@ -14,14 +14,26 @@ install:
 jobs:
   include:
     - stage: build binary
+      go:
+        - 1.12.x
+        - 1.11.x
+        - 1.10.x
+        - 1.9.x
+        - 1.8.x
       script: go build -o main .
     - stage: test
+      go:
+        - 1.12.x
       script: go test ./... -v -race
     - stage: generate coverage
+      go:
+        - 1.12.x
       script: go test ./... -race -coverprofile=coverage.txt -covermode=atomic
       after_success:
         - bash <(curl -s https://codecov.io/bash)
     - stage: build and run docker image
+      go:
+        - 1.12.x
       services:
         - docker
       before_install:

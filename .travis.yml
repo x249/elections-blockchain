@@ -2,6 +2,7 @@ os: linux
 distro: bionic
 language: go
 go:
+  - 1.13.x
   - 1.12.x
   - 1.11.x
 sudo: required

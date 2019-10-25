@@ -48,6 +48,7 @@ Blockchain technology can provide a solution to some of these problems. One of t
 - [x] Vote duplication check
 - [x] SHA256 hashing (with padding)
 - [x] Optimized Docker Image 👏
+- [x] ED25519 4096 bits Padded Cryptography
 - [ ] Public-Private key-pair generation (sent via email)
 - [ ] Decetralization
 - [ ] Peer discovery
